@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Salto : MonoBehaviour
 {
-    //Movimiento (1: establezco la posición incial [sí o sí mediante un vector])
-    public Vector3 posInicial = new Vector3(-1.75f, -0.5f, 0);
+    //Movimiento (1: establezco la posición incial [sí o sí mediante un vector/ACTUALIZADO: Respawn])
+    public GameObject respawn;
 
-    //Cambio de color (1: establezco la clase del color)
-    public Color miColor; 
+    /*Cambio de color (1: establezco la clase del color)
+    public Color miColor;*/
 
     //Variación de velocidad (establezco la variable; es modificable durante el play)
     public float velocidad = 0.01f;
@@ -19,12 +19,16 @@ public class Salto : MonoBehaviour
     public float multiplicadorSalto = 0.1f;
     private bool puedoSaltar = true;
 
+    //Animación; para distinguir cuando camina y cuando no --- activar Idle (1: menciono y denomino al controlador de anim)
+    private Animator animatorController;
+
 
 
     void Start(){
 
-        //Movimiento (2: aclaro que la posición inicial se va a modificar)
-        transform.position = posInicial;
+        //Movimiento (2: aclaro que la posición inicial se va a modificar/ACTUALIZADO)
+        respawn = GameObject.Find("Respawn");
+        Respawnear();
 
 
         /*en caso de querer que se gire, rote, etc. también se puede hacer así,
@@ -35,13 +39,12 @@ public class Salto : MonoBehaviour
         //Cuerpo sólido (2: vincular la clase a la propiedad del personaje para que tenga acceso a ella)
         rb = GetComponent<Rigidbody2D>();
 
+        //Animación (2: acceder a las propiedades en Unity)
+        animatorController = this.GetComponent<Animator>();
+
     }
 
 
-
-    //Otro posible método:
-    void Awake(){
-    }
 
 
 
@@ -61,8 +64,8 @@ public class Salto : MonoBehaviour
 
 
 
-        //Cambio de color (2: para poder modificar el color, accediendo a las propiedades)
-        this.GetComponent<SpriteRenderer>().color = miColor;
+        /*Cambio de color (2: para poder modificar el color, accediendo a las propiedades)
+        this.GetComponent<SpriteRenderer>().color = miColor;*/
 
 
         /*Movimiento (4: enlace del movimiento al input; "transform.position" y "transform.Translate"
@@ -70,11 +73,16 @@ public class Salto : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){ //Ir a la izquierda
             transform.Translate(velocidad*-1, 0, 0);
             this.GetComponent<SpriteRenderer>().flipX = true;
+            animatorController.SetBool("activaStay", true);
         } else if(Input.GetKey(KeyCode.D)){ //Ir a la derecha
             transform.Translate(velocidad, 0, 0);
             this.GetComponent<SpriteRenderer>().flipX = false;
+            animatorController.SetBool("activaStay", true);
+        } else {
+            animatorController.SetBool("activaStay", false);
         }
-        
+
+
 
          /*Cuerpo sólido (3: coherencia de movimiento según el plano [terreno])
             ---rb.velocity = new Vector2(multiplicadorSalto, rb.velocity.y);
@@ -100,7 +108,21 @@ public class Salto : MonoBehaviour
             puedoSaltar = false;
 
         }
+
+
+
+
+        //Comprobar si me he salido de la pantalla (por debajo)
+        if(transform.position.y <= 7){
+            Respawnear();
+        }
         
+    }
+
+
+
+     public void Respawnear(){
+        transform.position = respawn.transform.position;
     }
 
 
