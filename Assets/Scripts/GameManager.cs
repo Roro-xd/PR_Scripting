@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
+public static int vidas = 3;
+
+public static bool estoyMuerto = false;
+
+
     void Start()
     {
         

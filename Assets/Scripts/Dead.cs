@@ -26,10 +26,10 @@ private Salto movPersonaje;
 
 
 
-    void OgerEnter2D(Collider2D col)
-    {
+    void OnTriggerEnter2D(Collider2D col){
         
         if (col.name == "idle1"){
+            
             movPersonaje.Respawnear();
         }
 
