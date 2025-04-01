@@ -6,30 +6,29 @@ public class Dead : MonoBehaviour{
 
 
 private GameObject personaje;
-private Salto movPersonaje;
+private MovPersonaje movPersonaje;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-
-        personaje = GameObject.Find("idle1");
-        movPersonaje = personaje.GetComponent<Salto>();
-
+        //Localizo al personaje
+        personaje = GameObject.Find("Maga");
+        //Localizo el script al que referirme para respawnear después al personaje
+        movPersonaje = personaje.GetComponent<MovPersonaje>();
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         
     }
 
 
-
     void OnTriggerEnter2D(Collider2D col){
         
-        if (col.name == "idle1"){
-            
+        //Si el personaje mencionado colisiona con el objeto, respawnea
+        if (col.name == "Maga"){
             movPersonaje.Respawnear();
         }
 

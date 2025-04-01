@@ -11,12 +11,12 @@ public class Salto : MonoBehaviour
     public Color miColor;*/
 
     //Variación de velocidad (establezco la variable; es modificable durante el play)
-    public float velocidad = 0.01f;
+    public float velocidad = 0.1f;
 
     /*Cuerpo sólido (1: menciono la clase para rigidbody; creo un multiplicador para el salto;
     var booleana para evitar saltos seguidos)*/
     private Rigidbody2D rb;
-    public float multiplicadorSalto = 0.1f;
+    public float multiplicadorSalto = 1f;
     private bool puedoSaltar = true;
 
     //Animación; para distinguir cuando camina y cuando no --- activar Idle (1: menciono y denomino al controlador de anim)
@@ -86,7 +86,7 @@ public class Salto : MonoBehaviour
 
 
 
-         /*Cuerpo sólido (3: coherencia de movimiento según el plano [terreno])
+        /*Cuerpo sólido (3: coherencia de movimiento según el plano [terreno])
             ---rb.velocity = new Vector2(multiplicadorSalto, rb.velocity.y);
         en el vídeo usa movTeclas, nosotros no tenemos esa función*/
 
@@ -124,6 +124,8 @@ public class Salto : MonoBehaviour
         if(GameManager.vidas <= 0){
             GameManager.estoyMuerto = true;
         }
+
+        float miDeltaTime = Time.deltaTime;
         
     }
 
