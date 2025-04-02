@@ -29,8 +29,8 @@ public class MovPersonaje : MonoBehaviour
 
 
     //VELOCIDAD 1 (establezco la variable; es modificable durante el play)
-    public float vel = 0.1f;
-    public float mult = 1f;
+    //public float vel = 0.1f;
+    public float mult = 5f;
    
 
 
@@ -46,7 +46,7 @@ public class MovPersonaje : MonoBehaviour
 
 
         //CUERPO SÓLIDO 2 (vincular la clase a la propiedad del personaje para que tenga acceso a ella)
-        rigBod = this.GetComponent<Rigidbody2D>();
+        rigBod = GetComponent<Rigidbody2D>();
 
 
         //ANIMACIÓN 2 (acceder a las propiedades en Unity)
@@ -85,9 +85,6 @@ public class MovPersonaje : MonoBehaviour
             ·También puede rotar. "Debug.Log" es para ver el valor durante los cambios. "transform.Rotate('x','y','z')":
                 ---Debug.Log(transform.rotation);
                 ---transform.Rotate(0, 0, velocidad);*/
-
-
-
 
 
 
@@ -153,9 +150,9 @@ public class MovPersonaje : MonoBehaviour
 
         /*CUERPO SÓLIDO 5 (cuando pulsamos SPACE, le hace efecto una fuerza;
         "AddForce('dirección' (vector de 2 valores solo), 'TipoDeFuerza' (impulso en nuestro caso))")*/
-        if(Input.GetKey(KeyCode.Space) && puedoSaltar){ //Saltar
+        if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){ //Saltar
             rigBod.AddForce(new Vector2(0, multSalto), ForceMode2D.Impulse);
-            puedoSaltar = false;
+            //puedoSaltar = false;
         }
 
 
