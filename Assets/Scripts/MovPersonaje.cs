@@ -12,7 +12,7 @@ public class MovPersonaje : MonoBehaviour
 
 
     //MOVIMIENTO 1 (establezco la posición incial [sí o sí mediante un vector] / ACTUALIZADO: con respawn
-    GameObject respawn;
+    GameObject spawn;
 
 
     //CUERPO SÓLIDO 1 (menciono la clase para rigidbody)
@@ -30,7 +30,7 @@ public class MovPersonaje : MonoBehaviour
 
     //VELOCIDAD 1 (establezco la variable; es modificable durante el play)
     //public float vel = 0.1f;
-    public float mult = 5f;
+    public float mult = 1f;
    
 
 
@@ -41,8 +41,8 @@ public class MovPersonaje : MonoBehaviour
         
         /*MOVIMIENTO 2 (aclaro que la posición inicial se modificará) /
         ACTUALIZADO: localizo el respawn y lo establezco como posición inicial*/
-        respawn = GameObject.Find("respawn");
-        transform.position = respawn.transform.position;
+        spawn = GameObject.Find("Respawn");
+        transform.position = spawn.transform.position;
 
 
         //CUERPO SÓLIDO 2 (vincular la clase a la propiedad del personaje para que tenga acceso a ella)
@@ -60,7 +60,7 @@ public class MovPersonaje : MonoBehaviour
     void Update()
     {
 
-        //Para ????
+        //
         float miDeltaTime = Time.deltaTime;
 
         
@@ -152,7 +152,7 @@ public class MovPersonaje : MonoBehaviour
         "AddForce('dirección' (vector de 2 valores solo), 'TipoDeFuerza' (impulso en nuestro caso))")*/
         if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){ //Saltar
             rigBod.AddForce(new Vector2(0, multSalto), ForceMode2D.Impulse);
-            //puedoSaltar = false;
+            puedoSaltar = false;
         }
 
 
@@ -174,7 +174,7 @@ public class MovPersonaje : MonoBehaviour
     public void Respawnear(){
 
         //Si muere, que aparezca en el respawn
-        transform.position = respawn.transform.position;
+        transform.position = spawn.transform.position;
 
         //Si muere, que se le vayan restando vidas + que me avise el Console
         Debug.Log("Vidas: "+GameManager.vidas);
