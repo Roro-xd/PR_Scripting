@@ -20,7 +20,7 @@ public class MovPersonaje : MonoBehaviour
 
 
    //SALTO 1 (creo un multiplicador para el salto; var booleana para evitar saltos continuos)
-    public float multSalto = 1f;
+    public float multSalto = 5f;
     private bool puedoSaltar = true;
 
 
@@ -30,7 +30,7 @@ public class MovPersonaje : MonoBehaviour
 
     //VELOCIDAD 1 (establezco la variable; es modificable durante el play)
     //public float vel = 0.1f;
-    public float mult = 1f;
+    public float mult = 4f;
    
 
 
@@ -143,7 +143,7 @@ public class MovPersonaje : MonoBehaviour
 
         if (hit){
             puedoSaltar = true;
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
         }else { 
             puedoSaltar = false;
         }

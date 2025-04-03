@@ -6,21 +6,32 @@ public class Salvado : MonoBehaviour
 {
 
     GameObject Respawn;
+    GameObject Respawn2;
+    private GameObject Salvar1;
+    private Animator animatorControllerSalvar;
 
     void Start()
     {
         Respawn = GameObject.Find("Respawn");
+        Respawn2 = GameObject.Find("Respawn2");
+        Salvar1 = GameObject.Find("Salvar1");
+        animatorControllerSalvar = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         
     }
 
 
-    /*NO ME DIO TIEMPO A TERMINARLO
+    
     void OnTriggerEnter2D(Collider2D col){
-        Respawn.transform.position; 
-    }*/
+        Respawn.transform.position = Respawn2.transform.position;
+        //Debug.Log(col.name);
+        animatorControllerSalvar.SetBool("Salvar_Ahora", true);
+        //yield return new WaitForSeconds(1f);
+        //Destroy(Salvar1);
+    }
 }
