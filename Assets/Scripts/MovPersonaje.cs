@@ -22,6 +22,7 @@ public class MovPersonaje : MonoBehaviour
    //SALTO 1 (creo un multiplicador para el salto; var booleana para evitar saltos continuos)
     public float multSalto = 5f;
     private bool puedoSaltar = true;
+    public bool direccionBalaDcha = true;
 
 
     //ANIMACIÓN 1 (localizo y denomino al controlador de animación del personaje)
@@ -118,8 +119,10 @@ public class MovPersonaje : MonoBehaviour
         //izq
         if(movTeclas < 0){
             this.GetComponent<SpriteRenderer>().flipX = true;
+            direccionBalaDcha = false;
         }else if(movTeclas > 0){ //der
             this.GetComponent<SpriteRenderer>().flipX = false;
+            direccionBalaDcha = true;
         }
 
         //anim
@@ -157,7 +160,7 @@ public class MovPersonaje : MonoBehaviour
 
 
         //Comprobar si me he salido de la pantalla (por debajo)
-        if(transform.position.y <= -6){
+        if(transform.position.y <= -7){
             Respawnear();
         }
 
@@ -177,7 +180,7 @@ public class MovPersonaje : MonoBehaviour
         transform.position = spawn.transform.position;
 
         //Si muere, que se le vayan restando vidas + que me avise el Console
-        Debug.Log("Vidas: "+GameManager.vidas);
+        //Debug.Log("Vidas: "+GameManager.vidas);
         GameManager.vidas = GameManager.vidas -1;
         Debug.Log("Vidas: "+GameManager.vidas);
     }

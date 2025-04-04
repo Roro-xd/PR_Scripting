@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Salvado : MonoBehaviour
@@ -29,9 +30,10 @@ public class Salvado : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D col){
         Respawn.transform.position = Respawn2.transform.position;
-        //Debug.Log(col.name);
         animatorControllerSalvar.SetBool("Salvar_Ahora", true);
-        //yield return new WaitForSeconds(1f);
-        //Destroy(Salvar1);
+        GameManager.vidas = GameManager.vidas+1;
+        Debug.Log("He conseguido una vida!");
+        Debug.Log("Vidas: "+GameManager.vidas);
+        Destroy(Salvar1, 1.5f);
     }
 }
