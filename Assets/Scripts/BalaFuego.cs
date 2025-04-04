@@ -36,13 +36,15 @@ public class BalaFuego : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col){
         
-        if(col.gameObject.name.StartsWith("Enemy_fantasma")){
+        if(col.gameObject.name.StartsWith("Enemy_Fantasma")){
             Destroy(this.gameObject);
+            //Debug.Log(col.name);
 
             //fantasma
             col.gameObject.GetComponent<Fantasma_script>().vidaFantasma -= potenciaBalaFuego;
         }
 
     }
+    
 
 }

@@ -16,6 +16,9 @@ public class Fantasma_script : MonoBehaviour
     {
         if (vidaFantasma <= 0){
             Destroy(this.gameObject);
+            GameManager.enemigosMatados += 1;
+            Debug.Log("He matado a un enemigo!");
+            Debug.Log("Enemigos matados: "+GameManager.enemigosMatados);
         }
     }
 }

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
 public static int vidas = 3;
 public static int score = 0;
+public static int enemigosMatados = 0;
 
 public static bool estoyMuerto = false;
 
@@ -15,6 +16,7 @@ public static bool estoyMuerto = false;
     {
         Debug.Log("Vidas: "+vidas);
         Debug.Log("Puntos: "+score);
+        Debug.Log("Enemigos matados: "+enemigosMatados);
     }
 
     // Update is called once per frame

@@ -20,7 +20,7 @@ public class Arma : MonoBehaviour
 
             //Instantiate(objeto, position, rotacion)
             Instantiate(balaFuego, transform.position, Quaternion.identity);
-            //Debug.Log(" ");
+        
         }
 
     }
