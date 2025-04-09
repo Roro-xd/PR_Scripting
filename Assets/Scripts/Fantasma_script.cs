@@ -120,10 +120,13 @@ public class Fantasma_script : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2d(Collider2D collision) {
+    void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Player") {
-            GameManager.vidas -= 1;
-            //respawnear.Respawnear();
+              //GameManager.vidas -= 1;
+              respawnear.Respawnear();
         }
     }
+
+
+    
 }

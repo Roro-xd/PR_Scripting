@@ -6,18 +6,35 @@ public class Parallax : MonoBehaviour
 {
 
     GameObject player;
-    GameObject camera;
+    GameObject camara;
     public float velocidadParallax = 1;
+    public Vector3 posInicial;
+
+
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        camera = GameObject.FindWithTag("MainCamera");
+        camara = GameObject.FindWithTag("MainCamera");
+        posInicial = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+   void Update()
     {
-        transform.position = camera.transform.position * velocidadParallax;
+        //transform.position = new Vector3(camara.transform.position.x * velocidadParallax, 0, 0);
+        transform.position = posInicial + camara.transform.position;
+        transform.position = new Vector3(
+            posInicial.x + (camara.transform.position.x * velocidadParallax),
+            posInicial.y,
+            0
+         );
+    }
+
+
+    void FixedUpdate()
+    {
+        
     }
 }

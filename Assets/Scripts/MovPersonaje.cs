@@ -66,7 +66,10 @@ public class MovPersonaje : MonoBehaviour
 
         
         //El GameManager detecta cuándo estoy muerto; en este caso, el personaje se deja de mover (no sigue leyendo el Update)
-        if(GameManager.estoyMuerto) return;
+        if(GameManager.estoyMuerto){
+            animatorControllerMaga.SetBool("activaWalk", false);
+            return;
+        }
 
 
         /*APUNTES. Acciones que al final no se emplean en el juego:
