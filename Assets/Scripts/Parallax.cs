@@ -24,17 +24,23 @@ public class Parallax : MonoBehaviour
    void Update()
     {
         //transform.position = new Vector3(camara.transform.position.x * velocidadParallax, 0, 0);
-        transform.position = posInicial + camara.transform.position;
+        /*transform.position = posInicial + camara.transform.position;
         transform.position = new Vector3(
-            posInicial.x + (camara.transform.position.x * velocidadParallax),
+            posInicial.x + (camara.transform.position.x / velocidadParallax),
             posInicial.y,
             0
-         );
+         );*/
+
+         // transform.position = new Vector3(
+           // camara.transform.position.x / velocidadParallax, camara.transform.position.y / velocidadParallax,0
+      //  );
+
+      //transform.position = new Vector3(Camera.main.transform.position.x, 0, 0);
     }
 
 
     void FixedUpdate()
     {
-        
+       transform.position = new Vector3(Camera.main.transform.position.x, 0, 0);
     }
 }

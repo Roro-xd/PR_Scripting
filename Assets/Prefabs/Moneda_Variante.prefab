@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7527227194186218295}
   - component: {fileID: 7575425153233515587}
   - component: {fileID: 4146210408882817378}
-  - component: {fileID: 5749216736788379132}
   - component: {fileID: 5394701678071570144}
+  - component: {fileID: 3427433235539278533}
   m_Layer: 0
   m_Name: Moneda_Variante
   m_TagString: Untagged
@@ -108,19 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5749216736788379132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116160134702218214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c8fd1c95a6b7e42bd838776f191cda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  valorMonedaVariante: 3
 --- !u!58 &5394701678071570144
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +143,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4078003
+--- !u!114 &3427433235539278533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116160134702218214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afc597cf5974cf4cafe9a2395755ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valorMoneda: 3

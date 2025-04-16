@@ -28,6 +28,10 @@ public class Fantasma_script : MonoBehaviour
 
     private MovPersonaje respawnear;
 
+    GameObject AudioManagerObj;
+
+    AudioSource fantasmaAudioManager;
+
     void Start()
     {
         posInicial = transform.position;
@@ -39,7 +43,14 @@ public class Fantasma_script : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         respawnear = player.GetComponent<MovPersonaje>();
+
+        AudioManagerObj = GameObject.Find("AudioManagerObj");
+
+        fantasmaAudioManager = this.GetComponent<AudioSource>();
+
     }
+
+
 
     void Update()
     {
@@ -108,6 +119,12 @@ public class Fantasma_script : MonoBehaviour
                 transform.position, player.transform.position, velocidadAtaque * Time.deltaTime
             );
 
+
+        if (fantasmaAudioManager.isPlaying == false) {
+            fantasmaAudioManager.PlayOneShot(AudioManager.Instance.sonidoFantasma);
+        }
+            
+
             if(player.transform.position.x <= transform.position.x) {
                 this.GetComponent<SpriteRenderer>().flipX = false;
             } else {
@@ -122,7 +139,6 @@ public class Fantasma_script : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Player") {
-              //GameManager.vidas -= 1;
               respawnear.Respawnear();
         }
     }
