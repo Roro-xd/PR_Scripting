@@ -7,10 +7,12 @@ public class Arma : MonoBehaviour
 
     public GameObject balaFuego;
 
+    AudioSource armaAudioManager;
+
 
     void Start()
     {
-        
+        armaAudioManager = this.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,6 +22,7 @@ public class Arma : MonoBehaviour
 
             //Instantiate(objeto, position, rotacion)
             Instantiate(balaFuego, transform.position, Quaternion.identity);
+            armaAudioManager.PlayOneShot(AudioManager.Instance.sonidoArma);
         
         }
 

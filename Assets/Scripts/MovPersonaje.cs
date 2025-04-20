@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovPersonaje : MonoBehaviour
@@ -32,6 +33,14 @@ public class MovPersonaje : MonoBehaviour
     //VELOCIDAD 1 (establezco la variable; es modificable durante el play)
     //public float vel = 0.1f;
     public float mult = 4f;
+    
+
+    private GameObject GameManagerObj;
+    private GameManager gameManagerScript;
+
+    AudioSource magaAudioManager;
+
+    GameObject panelWin;
    
 
 
@@ -53,6 +62,13 @@ public class MovPersonaje : MonoBehaviour
         //ANIMACIÓN 2 (acceder a las propiedades en Unity)
         animatorControllerMaga = this.GetComponent<Animator>();
 
+        GameManagerObj = GameObject.Find("GameManagerObj");
+        gameManagerScript = GameManagerObj.GetComponent<GameManager>();
+
+        magaAudioManager = this.GetComponent<AudioSource>();
+
+        panelWin = GameObject.Find("Panel_Win");
+
     }
 
 
@@ -61,7 +77,7 @@ public class MovPersonaje : MonoBehaviour
     void Update()
     {
 
-        //
+        
         float miDeltaTime = Time.deltaTime;
 
         
@@ -136,6 +152,12 @@ public class MovPersonaje : MonoBehaviour
         }
 
 
+        //Ocultar los avisos en la pelea final
+        if (this.GetComponent<Transform>().position.x >= 54) {
+            gameManagerScript.OcultarAvisos();
+        }
+
+
 
 
 
@@ -158,6 +180,7 @@ public class MovPersonaje : MonoBehaviour
         "AddForce('dirección' (vector de 2 valores solo), 'TipoDeFuerza' (impulso en nuestro caso))")*/
         if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){ //Saltar
             rigBod.AddForce(new Vector2(0, multSalto), ForceMode2D.Impulse);
+            magaAudioManager.PlayOneShot(AudioManager.Instance.sonidoSaltar);
             puedoSaltar = false;
         }
 
@@ -186,6 +209,10 @@ public class MovPersonaje : MonoBehaviour
         //Debug.Log("Vidas: "+GameManager.vidas);
         GameManager.vidas = GameManager.vidas -1;
         Debug.Log("Vidas: "+GameManager.vidas);
+
+        gameManagerScript.AvisoMuerte();
+
+        magaAudioManager.PlayOneShot(AudioManager.Instance.sonidoMuerte);
     }
 
 

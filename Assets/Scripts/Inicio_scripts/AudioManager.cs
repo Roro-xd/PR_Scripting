@@ -9,8 +9,19 @@ public class AudioManager : MonoBehaviour
     public AudioClip bandaSonora;
     public AudioClip sonidoMoneda;
     public AudioClip sonidoFantasma;
+    public AudioClip sonidoArma;
+    public AudioClip sonidoMuerte;
+    public AudioClip sonidoMatar;
+    public AudioClip sonidoSave;
+    public AudioClip sonidoSaltar;
+    public AudioClip sonidoGameOver;
+    public AudioClip sonidoGanar;
+    public AudioClip sonidoBoton;
 
     public static AudioManager Instance;
+
+ 
+
 
 
     void Start()

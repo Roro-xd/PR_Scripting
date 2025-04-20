@@ -23,13 +23,13 @@ public class BalaFuego : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         float velocidadFinal = velocidad * Time.deltaTime;
         transform.Translate(velocidadFinal, 0f, 0f);
 
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 3f);
 
     }
 

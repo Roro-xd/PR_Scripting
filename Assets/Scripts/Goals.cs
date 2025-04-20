@@ -11,11 +11,17 @@ public class Goals : MonoBehaviour
     //Para el sonido
     GameObject AudioManagerObj;
 
+    private GameObject gameManagerObj;
+    private GameManager gameManagerScript;
+
 
     void Start()
     {
         animatorMoneda = this.GetComponent<Animator>();
         AudioManagerObj = GameObject.Find("AudioManagerObj");
+
+        gameManagerObj = GameObject.Find("GameManagerObj");
+        gameManagerScript = gameManagerObj.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -38,13 +44,15 @@ public class Goals : MonoBehaviour
             Destroy(this.gameObject, 1.5f);
             GameManager.score = GameManager.score+valorMoneda;
 
-            //AudioManagerObj.GetComponent<AudioManager>().SuenaMoneda();
+            //He cambiado el sonido fx_coin por el de fx_save porque creo que quedan mejor al revés
             AudioManager.Instance.SuenaClip(AudioManager.Instance.sonidoMoneda);
 
             if (valorMoneda == 1) {
                 Debug.Log("He conseguido " + valorMoneda + " punto!");
+                gameManagerScript.AvisoPunto();
             } else {
                 Debug.Log("He conseguido " + valorMoneda + " puntos!");
+                gameManagerScript.AvisoPuntos();
             }
 
             Debug.Log("Puntos: "+GameManager.score);

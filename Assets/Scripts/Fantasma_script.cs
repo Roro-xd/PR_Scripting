@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class Fantasma_script : MonoBehaviour
@@ -28,9 +30,15 @@ public class Fantasma_script : MonoBehaviour
 
     private MovPersonaje respawnear;
 
-    GameObject AudioManagerObj;
-
     AudioSource fantasmaAudioManager;
+
+    private GameObject gameManagerObj;
+    private GameManager gameManagerScript;
+
+
+    //GameObject panelWin;
+    private GameObject finalBoss;
+    private FinalBoss finalBossScript;
 
     void Start()
     {
@@ -44,10 +52,14 @@ public class Fantasma_script : MonoBehaviour
 
         respawnear = player.GetComponent<MovPersonaje>();
 
-        AudioManagerObj = GameObject.Find("AudioManagerObj");
-
         fantasmaAudioManager = this.GetComponent<AudioSource>();
 
+        gameManagerObj = GameObject.Find("GameManagerObj");
+        gameManagerScript = gameManagerObj.GetComponent<GameManager>();
+
+        //panelWin = GameObject.Find("Panel_Win");
+        finalBoss = GameObject.Find("NombreFinalBoss");
+        finalBossScript = finalBoss.GetComponent<FinalBoss>();
     }
 
 
@@ -59,8 +71,16 @@ public class Fantasma_script : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameManager.enemigosMatados += 1;
+
+            gameManagerScript.AvisoFantasma();
+
             Debug.Log("He matado a un enemigo!");
             Debug.Log("Enemigos matados: " + GameManager.enemigosMatados);
+
+            if (this.gameObject.name == "Enemy_Fantasma_Alter"){
+                finalBossScript.Win();
+            }
+
         }
 
 
@@ -122,6 +142,9 @@ public class Fantasma_script : MonoBehaviour
 
         if (fantasmaAudioManager.isPlaying == false) {
             fantasmaAudioManager.PlayOneShot(AudioManager.Instance.sonidoFantasma);
+            /*En Console da aviso de que no se puede reproducir: esto solo ocurre cuando el fantasma muere, pues tengo
+            establecido que desaparezca al quedarse sin vidas, por lo que no puede encontrar el origen del audio (el propio
+            fantasma), así que no es un error como tal*/
         }
             
 
