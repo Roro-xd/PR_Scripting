@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake() {
 
-        //Para que no se sokapen reproducciones con cosas que suceden en Start()
+        //Para que no se solapen reproducciones con cosas que suceden en Start()
         if (Instance != null && Instance != this){
             Destroy(this.gameObject);
         } else {
@@ -63,7 +63,6 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    //Método para 
     public void SuenaClip(AudioClip miClipDeAudio) {
         miAudioSource.PlayOneShot(miClipDeAudio);
     }

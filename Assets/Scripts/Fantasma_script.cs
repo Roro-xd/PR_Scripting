@@ -36,7 +36,7 @@ public class Fantasma_script : MonoBehaviour
     private GameManager gameManagerScript;
 
 
-    //GameObject panelWin;
+  
     private GameObject finalBoss;
     private FinalBoss finalBossScript;
 
@@ -57,8 +57,7 @@ public class Fantasma_script : MonoBehaviour
         gameManagerObj = GameObject.Find("GameManagerObj");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
 
-        //panelWin = GameObject.Find("Panel_Win");
-        finalBoss = GameObject.Find("NombreFinalBoss");
+        finalBoss = GameObject.Find("Enemy_Fantasma_Alter");
         finalBossScript = finalBoss.GetComponent<FinalBoss>();
     }
 

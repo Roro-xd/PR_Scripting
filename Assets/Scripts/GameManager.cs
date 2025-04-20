@@ -24,7 +24,6 @@ AudioSource fantasmaAudioManager;
 
 
 
-
     void Start()
     {
         Debug.Log("Vidas: "+vidas);
@@ -50,19 +49,18 @@ AudioSource fantasmaAudioManager;
         vidasText.GetComponent<TextMeshProUGUI>().text = vidas.ToString();
         puntosText.GetComponent<TextMeshProUGUI>().text = score.ToString();
         enemiesText.GetComponent<TextMeshProUGUI>().text = enemigosMatados.ToString();
-
-
     
 
     }
 
 
 
-
-
     public void AvisoFantasma() {
         avisosText.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has matado a un enemigo!"; 
+        /*Solo en este caso he puesto en el GameManager el audio de la muerte del fantasma;
+        el resto de sonidos los hemos practicado de formas distintas. Para el proyecto final trataré
+        de ponerlos todos de la misma manera*/
         fantasmaAudioManager.PlayOneShot(AudioManager.Instance.sonidoMatar);  
     }
 
@@ -70,7 +68,6 @@ AudioSource fantasmaAudioManager;
         avisosText.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has conseguido una vida!";   
     }
-
 
     public void AvisoPunto() {
         avisosText.SetActive(true);
