@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Puntuacion : MonoBehaviour
 {
 
 
-    GameObject audioManagerObj;
-    AudioManager audioManagerScript;
+
 
     //Hago una clase para la puntuación porque de otras maneras me está dando muchos problemas
     //Menciono el string que aparecerá en el texto UI
@@ -19,8 +20,7 @@ public class Puntuacion : MonoBehaviour
 
     void Start()
     {
-        audioManagerObj = GameObject.Find("AudioManagerObj");
-        audioManagerScript = audioManagerObj.GetComponent<AudioManager>();
+
     }
 
     void Update()
@@ -34,8 +34,5 @@ public class Puntuacion : MonoBehaviour
         this.GetComponent<TextMeshProUGUI>().text = puntuacion;
     }
 
-    public void VictoriaExit() {
-        Application.Quit();
-    }
 
 }

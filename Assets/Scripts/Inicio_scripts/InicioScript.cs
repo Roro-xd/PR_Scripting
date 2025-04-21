@@ -26,8 +26,6 @@ public class InicioScript : MonoBehaviour
         audioManagerObj = GameObject.Find("AudioManagerObj");
         audioManagerScript = audioManagerObj.GetComponent<AudioManager>();
 
-        AudioListener.volume = 0.5f;
-
     }
 
     

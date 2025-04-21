@@ -15,6 +15,7 @@ public static bool estoyMuerto = false;
 private GameObject vidasText;
 private GameObject puntosText;
 private GameObject enemiesText;
+private GameObject avisosObj;
 private GameObject avisosText;
 
 
@@ -33,9 +34,10 @@ AudioSource fantasmaAudioManager;
         vidasText = GameObject.Find("TextoVidas");
         puntosText = GameObject.Find("TextoPuntos");
         enemiesText = GameObject.Find("TextoEnemigos");
-        avisosText = GameObject.Find("TextoAvisos");
+        avisosObj = GameObject.Find("TextoAvisos");
+        avisosText = GameObject.Find("Avisos");
 
-        avisosText.SetActive(false);
+        avisosObj.SetActive(false);
 
         
         sonidoMuerteFantasma = GameObject.Find("SonidoMuerteFantasma");
@@ -58,11 +60,14 @@ AudioSource fantasmaAudioManager;
         score = 0;
         enemigosMatados = 0;
     }
+    /*Cuando se resetean al volver a jugar tras ganar, como Unity no encontraba el GameManager al no estar en la escena "Victoria",
+    fue necesario incluirlo mediante un prefab, por eso pueden salir errores de que no encuentra los textos de las stats
+    que aparecen durante la partida, pero no hay ningún error como tal*/
 
 
 
     public void AvisoFantasma() {
-        avisosText.SetActive(true);
+        avisosObj.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has matado a un enemigo!"; 
         /*Solo en este caso he puesto en el GameManager el audio de la muerte del fantasma;
         el resto de sonidos los hemos practicado de formas distintas. Para el proyecto final trataré
@@ -71,26 +76,26 @@ AudioSource fantasmaAudioManager;
     }
 
     public void AvisoSalvar() {
-        avisosText.SetActive(true);
+        avisosObj.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has conseguido una vida!";   
     }
 
     public void AvisoPunto() {
-        avisosText.SetActive(true);
+        avisosObj.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has conseguido un punto!";   
     }
     public void AvisoPuntos() {
-        avisosText.SetActive(true);
+        avisosObj.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has conseguido varios puntos!";   
     }
 
     public void AvisoMuerte() {
-        avisosText.SetActive(true);
+        avisosObj.SetActive(true);
         avisosText.GetComponent<TextMeshProUGUI>().text = "Has perdido una vida!";   
     }
 
     public void OcultarAvisos() {
-        avisosText.SetActive(false);
+        avisosObj.SetActive(false);
     }
 
 }

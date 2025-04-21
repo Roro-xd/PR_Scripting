@@ -13,7 +13,7 @@ public class FinalBoss : MonoBehaviour
     GameObject nombreBoss;
     private Animator animatorNombreBoss;
 
-    GameObject panelStats;
+    //GameObject panelStats;
 
 
 
@@ -23,7 +23,7 @@ public class FinalBoss : MonoBehaviour
         nombreBoss = GameObject.Find("NombreFinalBoss");
         animatorNombreBoss = nombreBoss.GetComponent<Animator>();
 
-        panelStats = GameObject.Find("Panel_Stats");
+        //panelStats = GameObject.Find("Panel_Stats");
 
     }
 
@@ -39,7 +39,7 @@ public class FinalBoss : MonoBehaviour
     public void AnimNomBoss() {
         //Aparición del nombre del boss: establezco la animación
         animatorNombreBoss.SetBool("NombreBoss", true);
-        panelStats.SetActive(false);
+        //panelStats.SetActive(false);
     }
 
     public void Win() {
