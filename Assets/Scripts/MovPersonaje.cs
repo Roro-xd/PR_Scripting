@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MovPersonaje : MonoBehaviour
 {
@@ -83,8 +85,14 @@ public class MovPersonaje : MonoBehaviour
         
         //El GameManager detecta cuándo estoy muerto; en este caso, el personaje se deja de mover (no sigue leyendo el Update)
         if(GameManager.estoyMuerto){
-            animatorControllerMaga.SetBool("activaWalk", false);
-            return;
+            PantallaDerrota();
+            GameManager.estoyMuerto = false;
+            gameManagerScript.ResetPuntuacion();
+            //GameManager.vidas = 3;
+
+            //animatorControllerMaga.SetBool("activaWalk", false);
+            //return;
+            
         }
 
 
@@ -216,7 +224,9 @@ public class MovPersonaje : MonoBehaviour
     }
 
 
-
+    public void PantallaDerrota() {
+        SceneManager.LoadScene("Derrota");
+    }
 
 
     /*APUNTES: Funciones que al final no se emplean en el juego:

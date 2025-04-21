@@ -51,12 +51,12 @@ MonoBehaviour:
   sonidoFantasma: {fileID: 8300000, guid: d9c554a7405f2ae47ad88f5f461f0e63, type: 3}
   sonidoArma: {fileID: 8300000, guid: eba76c4c8c1ea1f40ac14fe8d932ed20, type: 3}
   sonidoMuerte: {fileID: 8300000, guid: ad1365526c24916499c9304cf9ebaf98, type: 3}
-  sonidoMatar: {fileID: 8300000, guid: ab5383a1112081d449956a66ab34d068, type: 3}
-  sonidoSave: {fileID: 8300000, guid: d98742831d86c2b44904bfd123986326, type: 3}
-  sonidoSaltar: {fileID: 8300000, guid: 35f82c9c1a9d2df479cb2da5bcdac74f, type: 3}
+  sonidoMatar: {fileID: 8300000, guid: f4fec72d53802a241babc2b2af6f62ae, type: 3}
+  sonidoSave: {fileID: 8300000, guid: 1ff5eb9f203d2bb4f8a5bbdf18775672, type: 3}
+  sonidoSaltar: {fileID: 8300000, guid: 841ac9750436b90438618cc3fa8de5a1, type: 3}
   sonidoGameOver: {fileID: 8300000, guid: 7df87faed907ef647bc8f5387812a6db, type: 3}
   sonidoGanar: {fileID: 8300000, guid: 5543df09702cd354fbfe2682c56a91b9, type: 3}
-  sonidoBoton: {fileID: 8300000, guid: 526eaa40ccde2364693b54f6ecb63467, type: 3}
+  sonidoBoton: {fileID: 8300000, guid: 5ffe253d0aa790a4ab0274724655594a, type: 3}
 --- !u!82 &7754364538662948734
 AudioSource:
   m_ObjectHideFlags: 0

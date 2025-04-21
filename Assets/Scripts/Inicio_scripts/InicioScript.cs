@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
 
 public class InicioScript : MonoBehaviour
 {
@@ -10,15 +14,19 @@ public class InicioScript : MonoBehaviour
     GameObject audioManagerObj;
     AudioManager audioManagerScript;
 
+    public Slider sliderSonido;
+
+
+
     void Start()
     {
         panelSettings = GameObject.Find("Panel_Settings");
         panelSettings.SetActive(false);
 
         audioManagerObj = GameObject.Find("AudioManagerObj");
-
         audioManagerScript = audioManagerObj.GetComponent<AudioManager>();
 
+        AudioListener.volume = 0.5f;
 
     }
 
@@ -31,7 +39,6 @@ public class InicioScript : MonoBehaviour
 
     //Decirle al código que cuando se presione el botón, nos lleve a otra escena
     public void InicioPlay() {
-        //Debug.Log("ola");
         SceneManager.LoadScene("Scene1");
     }
 
@@ -52,7 +59,11 @@ public class InicioScript : MonoBehaviour
 
 
     public void SuenaBoton(){
-        audioManagerScript.miAudioSource.PlayOneShot(audioManagerScript.sonidoMoneda);
+        audioManagerScript.miAudioSource.PlayOneShot(audioManagerScript.sonidoBoton);
+    }
+
+    public void VolumenMusica() {
+        AudioListener.volume = sliderSonido.value;
     }
 
 }

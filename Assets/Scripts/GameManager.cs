@@ -50,7 +50,13 @@ AudioSource fantasmaAudioManager;
         puntosText.GetComponent<TextMeshProUGUI>().text = score.ToString();
         enemiesText.GetComponent<TextMeshProUGUI>().text = enemigosMatados.ToString();
     
+    }
 
+
+    public void ResetPuntuacion() {
+        vidas = 3;
+        score = 0;
+        enemigosMatados = 0;
     }
 
 
@@ -84,7 +90,7 @@ AudioSource fantasmaAudioManager;
     }
 
     public void OcultarAvisos() {
-            avisosText.SetActive(false);
+        avisosText.SetActive(false);
     }
 
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class FinalBoss : MonoBehaviour
 {
@@ -13,10 +15,6 @@ public class FinalBoss : MonoBehaviour
 
     GameObject panelStats;
 
-    //Una vez se derrota al final boss, se pasa a la pantalla de victoria
-    GameObject panelWin;
-    GameObject boxVolume;
-
 
 
     void Start()
@@ -26,11 +24,6 @@ public class FinalBoss : MonoBehaviour
         animatorNombreBoss = nombreBoss.GetComponent<Animator>();
 
         panelStats = GameObject.Find("Panel_Stats");
-
-        panelWin = GameObject.Find("Panel_Win");
-        panelWin.SetActive(false);
-
-        boxVolume = GameObject.Find("Box Volume");
 
     }
 
@@ -50,7 +43,7 @@ public class FinalBoss : MonoBehaviour
     }
 
     public void Win() {
-        boxVolume.SetActive(false);
-        panelWin.SetActive(true);
+        //Una vez se derrota al final boss, se pasa a la pantalla de victoria
+        SceneManager.LoadScene("Victoria");
     }
 }

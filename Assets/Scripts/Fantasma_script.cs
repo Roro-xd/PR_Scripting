@@ -139,11 +139,13 @@ public class Fantasma_script : MonoBehaviour
             );
 
 
-        if (fantasmaAudioManager.isPlaying == false) {
+        if (fantasmaAudioManager.isPlaying == false && vidaFantasma > 0) {
             fantasmaAudioManager.PlayOneShot(AudioManager.Instance.sonidoFantasma);
             /*En Console da aviso de que no se puede reproducir: esto solo ocurre cuando el fantasma muere, pues tengo
             establecido que desaparezca al quedarse sin vidas, por lo que no puede encontrar el origen del audio (el propio
             fantasma), así que no es un error como tal*/
+        } else if (vidaFantasma <= 0) {
+            fantasmaAudioManager.Stop();
         }
             
 

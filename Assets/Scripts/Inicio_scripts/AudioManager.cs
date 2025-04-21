@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
- 
+
 
 
 
@@ -29,6 +30,7 @@ public class AudioManager : MonoBehaviour
         miAudioSource = GetComponent<AudioSource>();
         miAudioSource.clip = bandaSonora;
         miAudioSource.Play();
+        
     }
 
 
@@ -65,5 +67,9 @@ public class AudioManager : MonoBehaviour
 
     public void SuenaClip(AudioClip miClipDeAudio) {
         miAudioSource.PlayOneShot(miClipDeAudio);
+    }
+
+    public void SuenaGanar() {
+        miAudioSource.PlayOneShot(sonidoGanar);
     }
 }
