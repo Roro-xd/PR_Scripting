@@ -29,7 +29,7 @@ public class BalaFuego : MonoBehaviour
         float velocidadFinal = velocidad * Time.deltaTime;
         transform.Translate(velocidadFinal, 0f, 0f);
 
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 1.5f);
 
     }
 

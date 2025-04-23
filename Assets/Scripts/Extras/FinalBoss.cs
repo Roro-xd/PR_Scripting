@@ -34,8 +34,7 @@ public class FinalBoss : MonoBehaviour
 
 
     /*Creo un método para que la animación suceda cuando le diga. En este caso, para evitar que se repita,
-    lo he relacionado con el segundo cambio de respawn [en script "Salvado"] (no aparecería en caso de no guardar,
-    pero es la mejor forma que se me ha ocurrido para no complicarlo demasiado)*/
+    lo he relacionado con un objeto que activa la animación y se destruye al entrar en contacto con el jugador "AparNomBoss"*/
     public void AnimNomBoss() {
         //Aparición del nombre del boss: establezco la animación
         animatorNombreBoss.SetBool("NombreBoss", true);

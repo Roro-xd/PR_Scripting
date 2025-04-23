@@ -62,7 +62,8 @@ AudioSource fantasmaAudioManager;
     }
     /*Cuando se resetean al volver a jugar tras ganar, como Unity no encontraba el GameManager al no estar en la escena "Victoria",
     fue necesario incluirlo mediante un prefab, por eso pueden salir errores de que no encuentra los textos de las stats
-    que aparecen durante la partida, pero no hay ningún error como tal*/
+    que aparecen durante la partida, pero no hay ningún error como tal.
+    No hay opción a ponerlo antes porque sino cuando sale la puntuación pondría el score base "30" (3 vidas y 0 puntos y muertes)*/
 
 
 

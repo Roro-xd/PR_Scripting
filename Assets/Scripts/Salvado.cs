@@ -16,8 +16,8 @@ public class Salvado : MonoBehaviour
     private GameObject sonidoSalvar;
     AudioSource salvarAudioManager;
 
-    private GameObject finalBoss;
-    private FinalBoss finalBossScript;
+    //private GameObject finalBoss;
+    //private FinalBoss finalBossScript;
 
 
 
@@ -36,8 +36,8 @@ public class Salvado : MonoBehaviour
         sonidoSalvar = GameObject.Find("SonidoSalvado");
         salvarAudioManager = sonidoSalvar.GetComponent<AudioSource>();
 
-        finalBoss = GameObject.Find("Enemy_Fantasma_Alter");
-        finalBossScript = finalBoss.GetComponent<FinalBoss>();
+        //finalBoss = GameObject.Find("Enemy_Fantasma_Alter");
+        //finalBossScript = finalBoss.GetComponent<FinalBoss>();
 
     }
 
@@ -59,7 +59,7 @@ public class Salvado : MonoBehaviour
 
             if(this.gameObject.name == "Salvar2"){
                 Respawn.transform.position = Respawn3.transform.position;
-                finalBossScript.AnimNomBoss();
+                //finalBossScript.AnimNomBoss();
             }
 
 
