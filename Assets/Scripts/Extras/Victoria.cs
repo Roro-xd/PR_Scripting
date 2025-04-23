@@ -8,6 +8,7 @@ public class Victoria : MonoBehaviour
 {
     private AudioSource audioVictoria;
 
+//Para resetear la puntuación una vez estamos en la pantalla de victoria (por si se quiere volver a jugar)
     private GameObject GameManagerObj;
     private GameManager gameManagerScript;
 

@@ -37,12 +37,12 @@ public class MovPersonaje : MonoBehaviour
     public float mult = 4f;
     
 
+    //AVISOS Y PUNTUACION
     private GameObject GameManagerObj;
     private GameManager gameManagerScript;
 
+    //SONIDOS: SALTAR Y MORIR
     AudioSource magaAudioManager;
-
-    GameObject panelWin;
    
 
 
@@ -69,8 +69,6 @@ public class MovPersonaje : MonoBehaviour
 
         magaAudioManager = this.GetComponent<AudioSource>();
 
-        panelWin = GameObject.Find("Panel_Win");
-
     }
 
 
@@ -83,17 +81,17 @@ public class MovPersonaje : MonoBehaviour
         float miDeltaTime = Time.deltaTime;
 
         
-        //El GameManager detecta cuándo estoy muerto; en este caso, el personaje se deja de mover (no sigue leyendo el Update)
+        //El GameManager detecta cuándo estoy muerto; me lleva a la pantalla de derrota
         if(GameManager.estoyMuerto){
             PantallaDerrota();
             GameManager.estoyMuerto = false;
             gameManagerScript.ResetPuntuacion();
-            //GameManager.vidas = 3;
 
             //animatorControllerMaga.SetBool("activaWalk", false);
-            //return;
+            //return; ESTO ERA CUANDO SIMPLEMENTE EL PLAYER SE QUEDABA PARADO
             
         }
+
 
 
         /*APUNTES. Acciones que al final no se emplean en el juego:
@@ -213,10 +211,10 @@ public class MovPersonaje : MonoBehaviour
         //Si muere, que aparezca en el respawn
         transform.position = spawn.transform.position;
 
-        //Si muere, que se le vayan restando vidas + que me avise el Console
+        //Si muere, que se le vayan restando vidas
         //Debug.Log("Vidas: "+GameManager.vidas);
         GameManager.vidas = GameManager.vidas -1;
-        Debug.Log("Vidas: "+GameManager.vidas);
+        //Debug.Log("Vidas: "+GameManager.vidas);
 
         gameManagerScript.AvisoMuerte();
 

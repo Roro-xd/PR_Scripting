@@ -60,6 +60,8 @@ public class InicioScript : MonoBehaviour
         audioManagerScript.miAudioSource.PlayOneShot(audioManagerScript.sonidoBoton);
     }
 
+
+    //Relaciono el volumen con el slider
     public void VolumenMusica() {
         AudioListener.volume = sliderSonido.value;
     }

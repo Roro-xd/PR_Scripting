@@ -21,7 +21,6 @@ public class Cartel_int : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q)) {
 
                 cartelController.SetBool("CartelGrande",false);
-                //panelCartel.SetActive(false);
 
         }
     }

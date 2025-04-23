@@ -5,6 +5,9 @@ using UnityEngine;
 public class AparNomBoss : MonoBehaviour
 {
 
+//Cuando el player cruza la zona marcada por este objeto vacío, se inicia la animación del boss y se destruye (para que no se
+//repita cada vez que se vuelva a tocar)
+
     private GameObject finalBoss;
     private FinalBoss finalBossScript;
 

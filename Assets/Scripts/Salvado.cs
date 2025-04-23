@@ -6,18 +6,19 @@ using UnityEngine;
 public class Salvado : MonoBehaviour
 {
 
+//Para los distintos spawns según los guardados por los que se ha pasado (seguro que hay una forma más eficiente, pero la no sé
+//ni la he encontrado)
     GameObject Respawn;
     GameObject Respawn2;
     GameObject Respawn3;
 
+//Para los avisos al guardar
     private GameObject gameManagerObj;
     private GameManager gameManagerScript;
 
+//Para el sonido al guardar
     private GameObject sonidoSalvar;
     AudioSource salvarAudioManager;
-
-    //private GameObject finalBoss;
-    //private FinalBoss finalBossScript;
 
 
 
@@ -35,9 +36,6 @@ public class Salvado : MonoBehaviour
 
         sonidoSalvar = GameObject.Find("SonidoSalvado");
         salvarAudioManager = sonidoSalvar.GetComponent<AudioSource>();
-
-        //finalBoss = GameObject.Find("Enemy_Fantasma_Alter");
-        //finalBossScript = finalBoss.GetComponent<FinalBoss>();
 
     }
 
@@ -59,15 +57,12 @@ public class Salvado : MonoBehaviour
 
             if(this.gameObject.name == "Salvar2"){
                 Respawn.transform.position = Respawn3.transform.position;
-                //finalBossScript.AnimNomBoss();
             }
-
 
 
             GameManager.vidas = GameManager.vidas+1;
             gameManagerScript.AvisoSalvar();
 
-            //He cambiado el sonido fx_coin por el de fx_save porque creo que quedan mejor al revés
             salvarAudioManager.PlayOneShot(AudioManager.Instance.sonidoSave);
 
             //Debug.Log("He conseguido una vida!");

@@ -29,7 +29,6 @@ public class Goals : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.score = GameManager.score+valorMoneda;
 
-            //He cambiado el sonido fx_moneda por el de fx_save porque creo que quedan mejor al revés
             AudioManager.Instance.SuenaClip(AudioManager.Instance.sonidoMoneda);
 
             if (valorMoneda == 1) {

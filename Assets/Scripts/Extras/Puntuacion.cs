@@ -8,14 +8,8 @@ using UnityEngine.SceneManagement;
 public class Puntuacion : MonoBehaviour
 {
 
-
-
-
-    //Hago una clase para la puntuación porque de otras maneras me está dando muchos problemas
-    //Menciono el string que aparecerá en el texto UI
+    //Hago una clase para la puntuación; menciono el string que aparecerá en el texto UI
     string puntuacion;
-
-
 
 
     void Start()

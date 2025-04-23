@@ -13,7 +13,6 @@ public class FinalBoss : MonoBehaviour
     GameObject nombreBoss;
     private Animator animatorNombreBoss;
 
-    //GameObject panelStats;
 
 
 
@@ -22,8 +21,6 @@ public class FinalBoss : MonoBehaviour
         //Aparición del nombre del boss: encuentro los objetos
         nombreBoss = GameObject.Find("NombreFinalBoss");
         animatorNombreBoss = nombreBoss.GetComponent<Animator>();
-
-        //panelStats = GameObject.Find("Panel_Stats");
 
     }
 
@@ -34,11 +31,10 @@ public class FinalBoss : MonoBehaviour
 
 
     /*Creo un método para que la animación suceda cuando le diga. En este caso, para evitar que se repita,
-    lo he relacionado con un objeto que activa la animación y se destruye al entrar en contacto con el jugador "AparNomBoss"*/
+    lo he relacionado con un objeto que activa la animación ("AparNomBoss") y se destruye al entrar en contacto con el jugador*/
     public void AnimNomBoss() {
         //Aparición del nombre del boss: establezco la animación
         animatorNombreBoss.SetBool("NombreBoss", true);
-        //panelStats.SetActive(false);
     }
 
     public void Win() {

@@ -40,7 +40,7 @@ public class BalaFuego : MonoBehaviour
             Destroy(this.gameObject);
             //Debug.Log(col.name);
 
-            //fantasma
+            //Para la vida de los enemigos
             col.gameObject.GetComponent<Fantasma_script>().vidaFantasma -= potenciaBalaFuego;
         }
 

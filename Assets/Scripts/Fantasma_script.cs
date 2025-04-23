@@ -73,8 +73,8 @@ public class Fantasma_script : MonoBehaviour
 
             gameManagerScript.AvisoFantasma();
 
-            Debug.Log("He matado a un enemigo!");
-            Debug.Log("Enemigos matados: " + GameManager.enemigosMatados);
+            //Debug.Log("He matado a un enemigo!");
+            //Debug.Log("Enemigos matados: " + GameManager.enemigosMatados);
 
             if (this.gameObject.name == "Enemy_Fantasma_Alter"){
                 finalBossScript.Win();
